@@ -33,7 +33,11 @@
             </tr>
             <tr>
                 <th>Cover</th>
-                <td>{{ manga.cover }}</td>
+                <td>
+                    {% if manga.imageName %}
+                        <img src="{{ vich_uploader_asset(manga, 'imageFile') | imagine_filter('thumb') }}" alt="{{ manga.title }} {{ manga.tome }}">
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>

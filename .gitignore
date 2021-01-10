@@ -18,6 +18,8 @@
 ###> mangatek project ###
 .idea/
 migrations/
+/public/images/
+/public/media/
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
@@ -25,3 +27,4 @@ migrations/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+

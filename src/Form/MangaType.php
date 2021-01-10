@@ -6,6 +6,7 @@ use App\Entity\Manga;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class MangaType extends AbstractType
 {
@@ -17,7 +18,10 @@ class MangaType extends AbstractType
             ->add('tome')
             ->add('isbn')
             ->add('summary')
-            ->add('cover')
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
+            ->add('imageName')
             ->add('mangaka')
             ->add('scriptwriter')
         ;
