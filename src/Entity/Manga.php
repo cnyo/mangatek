@@ -33,7 +33,7 @@ class Manga
     private $tome;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $isbn;
 
@@ -49,13 +49,13 @@ class Manga
 
     /**
      * @ORM\ManyToOne(targetEntity=Mangaka::class, inversedBy="manga")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $mangaka;
 
     /**
      * @ORM\ManyToOne(targetEntity=Mangaka::class, inversedBy="manga")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $scriptwriter;
 
