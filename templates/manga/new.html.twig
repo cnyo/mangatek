@@ -2,10 +2,17 @@
 
 {% block title %}New Manga{% endblock %}
 
+{% block page_title %}
+    <h1>Nouveau Manga</h1>
+{% endblock %}
+
 {% block body %}
-    <h1>Create new Manga</h1>
+    <div class="container-fluid">
+        <div class="coll-ms-12">
+            {{ include('manga/_form.html.twig') }}
 
-    {{ include('manga/_form.html.twig') }}
+            <a href="{{ path('manga_index') }}">back to list</a>
+        </div>
+    </div>
 
-    <a href="{{ path('manga_index') }}">back to list</a>
 {% endblock %}

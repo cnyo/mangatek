@@ -1,45 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Manga index{% endblock %}
+{% block page_title %}{% endblock %}
 
 {% block body %}
-    <h1>Manga index</h1>
+    <div class="container">
+        <div class="coll-ms-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th>Tome</th>
+                        <th>Isbn</th>
+                        <th>Summary</th>
+                        <th>Cover</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for manga in mangas %}
+                    <tr>
+                        <td>{{ manga.id }}</td>
+                        <td>{{ manga.title }}</td>
+                        <td>{{ manga.subtitle }}</td>
+                        <td>{{ manga.tome }}</td>
+                        <td>{{ manga.isbn }}</td>
+                        <td>{{ manga.summary }}</td>
+                        <td>{{ manga.cover }}</td>
+                        <td>
+                            <a href="{{ path('manga_show', {'id': manga.id}) }}">show</a>
+                            <a href="{{ path('manga_edit', {'id': manga.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Subtitle</th>
-                <th>Tome</th>
-                <th>Isbn</th>
-                <th>Summary</th>
-                <th>Cover</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for manga in mangas %}
-            <tr>
-                <td>{{ manga.id }}</td>
-                <td>{{ manga.title }}</td>
-                <td>{{ manga.subtitle }}</td>
-                <td>{{ manga.tome }}</td>
-                <td>{{ manga.isbn }}</td>
-                <td>{{ manga.summary }}</td>
-                <td>{{ manga.cover }}</td>
-                <td>
-                    <a href="{{ path('manga_show', {'id': manga.id}) }}">show</a>
-                    <a href="{{ path('manga_edit', {'id': manga.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('manga_new') }}">Create new</a>
+            <a href="{{ path('manga_new') }}">Create new</a>
+        </div>
+    </div>
 {% endblock %}

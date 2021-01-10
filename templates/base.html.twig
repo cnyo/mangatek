@@ -8,6 +8,10 @@
         {% endblock %}
     </head>
     <body>
+        {% include 'manga/_navbar.html.twig' %}
+        {% block page_title %}Accueil{% endblock %}
+        {% include 'manga/_breadcrumb.html.twig' %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
